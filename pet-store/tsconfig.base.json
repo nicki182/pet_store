@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@pet-store/db": ["libraries/db/src/index.ts"],
+      "@pet-store/entities": ["libraries/entities/src/index.ts"],
+      "@pet-store/graphql": ["libraries/graphql/src/index.ts"],
+      "@pet-store/services": ["libraries/services/src/index.ts"],
+      "@pet-store/ui": ["libraries/ui/src/index.ts"],
+      "@pet-store/utils": ["libraries/utils/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

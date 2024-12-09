@@ -1,0 +1,17 @@
+{
+  "name": "pet_description_server-e2e",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "implicitDependencies": ["pet_description_server"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
+      "options": {
+        "jestConfig": "apps/pet_description/pet_description_server-e2e/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "dependsOn": ["pet_description_server:build"]
+    }
+  }
+}

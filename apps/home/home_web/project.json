@@ -1,9 +1,0 @@
-{
-  "name": "home_web",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/home/home_web/src",
-  "projectType": "application",
-  "tags": [],
-  "// targets": "to see all targets run: nx show project home_web --web",
-  "targets": {}
-}

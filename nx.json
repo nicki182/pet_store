@@ -46,7 +46,10 @@
         "apps/home/home_server-e2e/**/*",
         "apps/pet_description/pet_description_server-e2e/**/*",
         "apps/products/products_server-e2e/**/*",
-        "apps/gateway-e2e/**/*"
+        "apps/gateway-e2e/**/*",
+        "apps/product_description_server-e2e/**/*",
+        "apps/products_server-e2e/**/*",
+        "apps/home_server-e2e/**/*"
       ]
     },
     {
@@ -89,6 +92,21 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    },
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "@nx/webpack:webpack": {
+      "inputs": [
+        "production",
+        "^production",
+        {
+          "env": "NX_MF_DEV_REMOTES"
+        }
+      ],
+      "dependsOn": ["^build"],
+      "cache": true
     }
   },
   "generators": {

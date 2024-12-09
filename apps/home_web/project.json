@@ -1,0 +1,82 @@
+{
+  "name": "home_web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/home_web/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/home_web",
+        "index": "apps/home_web/src/index.html",
+        "baseHref": "/",
+        "main": "apps/home_web/src/main.ts",
+        "tsConfig": "apps/home_web/tsconfig.app.json",
+        "assets": ["apps/home_web/src/favicon.ico", "apps/home_web/src/assets"],
+        "styles": ["apps/home_web/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "apps/home_web/webpack.config.ts"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/home_web/src/environments/environment.ts",
+              "with": "apps/home_web/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/home_web/webpack.config.prod.ts"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "home_web:build",
+        "hmr": true,
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "home_web:build:development"
+        },
+        "production": {
+          "buildTarget": "home_web:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/react:module-federation-static-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "serveTarget": "home_web:serve"
+      },
+      "configurations": {
+        "development": {
+          "serveTarget": "home_web:serve:development"
+        },
+        "production": {
+          "serveTarget": "home_web:serve:production"
+        }
+      }
+    }
+  }
+}

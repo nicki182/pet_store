@@ -1,9 +1,0 @@
-{
-  "name": "pet_description_web",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/pet_description/pet_description_web/src",
-  "projectType": "application",
-  "tags": [],
-  "// targets": "to see all targets run: nx show project pet_description_web --web",
-  "targets": {}
-}

@@ -20,7 +20,12 @@
       "@pet-store/graphql": ["libraries/graphql/src/index.ts"],
       "@pet-store/services": ["libraries/services/src/index.ts"],
       "@pet-store/ui": ["libraries/ui/src/index.ts"],
-      "@pet-store/utils": ["libraries/utils/src/index.ts"]
+      "@pet-store/utils": ["libraries/utils/src/index.ts"],
+      "home_web/Module": ["apps/home_web/src/remote-entry.ts"],
+      "product_description_web/Module": [
+        "apps/product_description_web/src/remote-entry.ts"
+      ],
+      "products_web/Module": ["apps/products_web/src/remote-entry.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
